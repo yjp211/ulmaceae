@@ -1,0 +1,18 @@
+stages:
+- name: go test
+  steps:
+  - runScriptConfig:
+      image: golang:latest
+      shellScript: go test
+- name: image build
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: yjp211/demo
+- name: deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
+timeout: 60
+notification: {}
