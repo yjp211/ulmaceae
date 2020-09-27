@@ -9,10 +9,10 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: yjp211/demo
+      tag: yjp211/ulmaceae
 - name: deploy
   steps:
   - applyYamlConfig:
-      path: ./deployment.yaml
+      path: ./deploy.yaml
 timeout: 60
 notification: {}
